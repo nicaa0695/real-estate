@@ -6,6 +6,7 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.integer :price
       t.integer :rooms
       t.integer :bathrooms
+      t.string :photo
 
       t.timestamps
     end
