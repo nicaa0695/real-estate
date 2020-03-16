@@ -4,6 +4,10 @@ class PropertiesController < ApplicationController
 
   # GET /properties
   # GET /properties.json
+
+  def about
+  end 
+
   def index
     @properties = Property.all
   end
