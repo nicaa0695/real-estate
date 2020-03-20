@@ -21,6 +21,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+#image uploads
+gem 'carrierwave', '~> 0.11.2'
+gem 'fog', '~> 2.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
