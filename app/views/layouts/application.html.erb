@@ -5,14 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> %>
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>" class="<%= controller.action_name %>">
+    <% if @show_sidebar.nil? %>
+    <header>
+      <%= render "layouts/nav/public" %>
+      <%= yeild %>
+    </header>
+    <% else %>
+    <%= render "layouts/nav/dashboard" %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "layouts/nav/sidebar" %>
+
 
   <% if ["public","devise"].include?(controller.controller_name) %>
     <header>
