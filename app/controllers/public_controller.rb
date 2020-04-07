@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
   def main
-    @properties = Property.lastest
+    @properties = Property.latest.limit(3)
   end
 end

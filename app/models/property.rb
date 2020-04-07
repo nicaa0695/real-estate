@@ -1,6 +1,10 @@
 class Property < ApplicationRecord
-    mount_uploader :photo, PhotoUploader
     belongs_to :account
-
-    scope latest: -> {order created_at: :desc}
+    mount_uploader :photo, PhotoUploader
+  
+    validates :name, presence: true, length: {minimum: 3, maximum: 50}
+    validates :address, presence: true, length: {minimum: 3, maximum: 100}
+    validates :account_id, presence: true
+  
+    scope :latest, -> { order created_at: :desc }
 end
